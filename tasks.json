@@ -1,0 +1,94 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "file": "apps/frontend/package.json",
+      "desc": "Initialize Next.js frontend with Shadcn UI dependencies",
+      "framework": "Next.js + Shadcn UI"
+    },
+    {
+      "id": 2,
+      "file": "apps/backend/package.json",
+      "desc": "Initialize NestJS backend with core dependencies",
+      "framework": "NestJS + TypeScript"
+    },
+    {
+      "id": 3,
+      "file": "apps/backend/src/auth/auth.module.ts",
+      "desc": "Create authentication module with JWT strategy",
+      "framework": "NestJS + JWT"
+    },
+    {
+      "id": 4,
+      "file": "apps/backend/src/users/user.entity.ts",
+      "desc": "Define User entity with id, email, password fields",
+      "framework": "NestJS + TypeORM"
+    },
+    {
+      "id": 5,
+      "file": "apps/backend/src/users/user.service.ts",
+      "desc": "Implement user service with CRUD operations",
+      "framework": "NestJS + TypeORM"
+    },
+    {
+      "id": 6,
+      "file": "apps/backend/src/exams/exam.entity.ts",
+      "desc": "Define Exam entity with questions and answers",
+      "framework": "NestJS + TypeORM"
+    },
+    {
+      "id": 7,
+      "file": "apps/backend/src/exams/exam.service.ts",
+      "desc": "Implement exam service with create, read, update operations",
+      "framework": "NestJS + TypeORM"
+    },
+    {
+      "id": 8,
+      "file": "apps/backend/src/results/result.entity.ts",
+      "desc": "Define Result entity for tracking user exam performance",
+      "framework": "NestJS + TypeORM"
+    },
+    {
+      "id": 9,
+      "file": "apps/frontend/src/pages/login.tsx",
+      "desc": "Create login page with email/password and SSO options",
+      "framework": "Next.js + Shadcn UI"
+    },
+    {
+      "id": 10,
+      "file": "apps/frontend/src/pages/dashboard.tsx",
+      "desc": "Create user dashboard with progress charts and exam history",
+      "framework": "Next.js + Shadcn UI"
+    },
+    {
+      "id": 11,
+      "file": "apps/frontend/src/pages/exam/[id].tsx",
+      "desc": "Create exam taking interface with timer and question display",
+      "framework": "Next.js + Shadcn UI"
+    },
+    {
+      "id": 12,
+      "file": "apps/frontend/src/pages/admin/dashboard.tsx",
+      "desc": "Create admin dashboard for managing exam content",
+      "framework": "Next.js + Shadcn UI"
+    },
+    {
+      "id": 13,
+      "file": "docker-compose.yml",
+      "desc": "Configure Docker services for frontend, backend, and databases",
+      "framework": "Docker Compose"
+    },
+    {
+      "id": 14,
+      "file": ".github/workflows/ci.yml",
+      "desc": "Set up CI/CD pipeline with test, build, and deploy steps",
+      "framework": "GitHub Actions"
+    },
+    {
+      "id": 15,
+      "file": "package.json",
+      "desc": "Configure root package.json for monorepo with workspaces",
+      "framework": "NPM Workspaces"
+    }
+  ]
+}
