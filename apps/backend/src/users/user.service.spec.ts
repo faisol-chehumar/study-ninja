@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { UserService } from './user.service';
 import { User } from './user.entity';
 import { NotFoundException, BadRequestException } from '@nestjs/common';
-import { IUserRepository } from './interfaces/user-repository.interface';
+import { IUserRepository } from './user-repository.interface';
 import * as bcrypt from 'bcryptjs';
 
 describe('UserService', () => {

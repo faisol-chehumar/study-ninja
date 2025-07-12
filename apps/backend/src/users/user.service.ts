@@ -6,19 +6,8 @@ import {
 } from '@nestjs/common';
 import * as bcrypt from 'bcryptjs';
 import { User } from './user.entity';
-import { IUserRepository } from './interfaces/user-repository.interface';
-
-export interface CreateUserDto {
-  email: string;
-  password: string;
-  name: string;
-}
-
-export interface UpdateUserDto {
-  email?: string;
-  password?: string;
-  name?: string;
-}
+import { IUserRepository } from './user-repository.interface';
+import { CreateUserDto, UpdateUserDto } from './dto';
 
 @Injectable()
 export class UserService {
