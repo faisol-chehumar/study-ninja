@@ -34,8 +34,8 @@ describe('AuthController', () => {
   describe('login', () => {
     it('should return JWT token on successful login', async () => {
       const mockRequest = {
-        user: { id: 1, email: 'test@example.com' },
-      };
+        user: { id: 1, email: 'test@example.com', name: 'Test User' },
+      } as any;
       const mockResult = {
         access_token: 'mock.jwt.token',
         user: mockRequest.user,
@@ -76,9 +76,9 @@ describe('AuthController', () => {
     it('should return user profile', async () => {
       const mockRequest = {
         user: { id: 1, email: 'test@example.com', name: 'Test User' },
-      };
+      } as any;
 
-      const result = await authController.getProfile(mockRequest);
+      const result = authController.getProfile(mockRequest);
 
       expect(result).toEqual(mockRequest.user);
     });

@@ -49,7 +49,7 @@ describe('AuthService', () => {
 
   describe('login', () => {
     it('should return JWT token for valid user', async () => {
-      const mockUser = { id: 1, email: 'test@example.com' };
+      const mockUser = { id: 1, email: 'test@example.com', name: 'Test User' };
       const mockToken = 'mock.jwt.token';
       
       mockJwtService.sign.mockReturnValue(mockToken);
@@ -63,6 +63,7 @@ describe('AuthService', () => {
       expect(jwtService.sign).toHaveBeenCalledWith({
         email: mockUser.email,
         sub: mockUser.id,
+        name: mockUser.name,
       });
     });
   });
