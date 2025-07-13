@@ -48,22 +48,36 @@ describe('AuthService', () => {
   });
 
   describe('login', () => {
-    it('should return JWT token for valid user', async () => {
-      const mockUser = { id: 1, email: 'test@example.com' };
+    it('should return JWT token for valid credentials', async () => {
+      const loginDto = { email: 'test@example.com', password: 'password123' };
+      const mockUser = { id: 1, email: 'test@example.com', name: 'Test User' };
       const mockToken = 'mock.jwt.token';
       
+      // Mock validateUser to return the user
+      jest.spyOn(authService, 'validateUser').mockResolvedValue(mockUser);
       mockJwtService.sign.mockReturnValue(mockToken);
       
-      const result = await authService.login(mockUser);
+      const result = await authService.login(loginDto);
       
       expect(result).toEqual({
         access_token: mockToken,
         user: mockUser,
       });
+      expect(authService.validateUser).toHaveBeenCalledWith(loginDto.email, loginDto.password);
       expect(jwtService.sign).toHaveBeenCalledWith({
         email: mockUser.email,
         sub: mockUser.id,
+        name: mockUser.name,
       });
+    });
+
+    it('should throw UnauthorizedException for invalid credentials', async () => {
+      const loginDto = { email: 'test@example.com', password: 'wrongpassword' };
+      
+      // Mock validateUser to return null (invalid credentials)
+      jest.spyOn(authService, 'validateUser').mockResolvedValue(null);
+      
+      await expect(authService.login(loginDto)).rejects.toThrow('Invalid credentials');
     });
   });
 
